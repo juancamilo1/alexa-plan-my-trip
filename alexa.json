@@ -1,0 +1,135 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "easy trip planner",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlanMyTrip",
+                    "slots": [
+                        {
+                            "name": "fromCity",
+                            "type": "AMAZON.US_CITY",
+                            "samples": [
+                                "I will be travelling from {fromCity}",
+                                "{fromCity}",
+                                "from {fromCity}"
+                            ]
+                        },
+                        {
+                            "name": "toCity",
+                            "type": "AMAZON.US_CITY",
+                            "samples": [
+                                "to {toCity}",
+                                "{toCity}",
+                                "I wish to visit {toCity}"
+                            ]
+                        },
+                        {
+                            "name": "travelDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "I will be travelling on {travelDate}",
+                                "{travelDate}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I wish to visit {toCity} from {fromCity} on {travelDate}",
+                        "plan my trip",
+                        "Help me plan my trip"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PlanMyTrip",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "fromCity",
+                            "type": "AMAZON.US_CITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1460148449174.1113772338849"
+                            }
+                        },
+                        {
+                            "name": "toCity",
+                            "type": "AMAZON.US_CITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1460148449174.937491542932"
+                            }
+                        },
+                        {
+                            "name": "travelDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1460148449174.1100856551078"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1460148449174.937491542932",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where do you wish to travel?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1460148449174.1113772338849",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "From where will you be travelling?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1460148449174.1100856551078",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "When will you be travelling?"
+                    }
+                ]
+            }
+        ]
+    }
+}
